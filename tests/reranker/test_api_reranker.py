@@ -20,9 +20,9 @@ def test_api_reranker_batching(config, patch_openai):
 
 
 def test_api_reranker_retries_transient_error(config, monkeypatch):
-    reranker = ApiReranker(config)
     config.reranker.api.max_retries = 3
     config.reranker.api.retry_delay_seconds = 0
+    reranker = ApiReranker(config)
     attempts = {"count": 0}
 
     class TransientError(Exception):
