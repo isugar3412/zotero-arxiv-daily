@@ -42,6 +42,8 @@ reranker:
     base_url: null # API URL of your embedding model API. Example: https://api.openai.com/v1
     model: null # The model name of the embedding model. Example: text-embedding-3-large
     batch_size: null # The batch size for embedding API requests. Adjust to match your provider's limit. Example: 64
+    max_retries: 3 # Number of retries for transient embedding API failures (e.g. 5xx).
+    retry_delay_seconds: 1 # Base retry delay in seconds (multiplied by attempt number).
 
 executor:
   debug: false # Whether to use debug mode. Example: true
